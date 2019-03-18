@@ -1,14 +1,9 @@
 # Gina
 #### *isi ka naam hai*
 
-Gina is a bot in the most rudimentary form who is trying to use her knowledge in English to learn a new language that *you* know that *you* are going to teach her.
-How? Fret not. She is going to guide you throughout.
+Gina is a rule-based program to build translated pairs (English to Hindi), given parallel corpora. Given corresponding English-Hindi data, she derives correspondece pairs using two things: 1) her initial lexicon, updated with every learnt pair, that 'overlaps' in newly encountered data. 2) An understanding of basic syntactical ordering in Hindi and English. 
 
-There are two parts to the program. In the first part, she gives you a series of simple sentences in English which you have to translate into a language of your choice. She assumes you are correct and based on your inputs, she will display a bunch of syntax rules of the language you used. She knows that languages are vast and complicated and they often do not follow rigid rules which is why you might notice some discrepancies here and there but that is still rare.
-
-The second part of the program is more specific. Using the base register of English as a point of reference, she learns verbs, nouns, adjectives, and adpositions. She begins with an initial state of the Hindi lexicon in each of these syntactic categories, and given an English word and its translation, she learns the unfamiliar words and keeps building her lexicon.
-
-Gina uses the Cloud Natural Language API by Google for syntax analysis of the English sentences she encounters.
+Both of these premises place severe constraints on Gina's capacity for learning as well as her accuracy; however, this is only a rudimentary implementation of a possible approach towards lexicon building, that engages with problems such as, for example, translating from a genderless to a gendered language, or from a non-ergative to a partially ergative language. Given the simplistic setup, Gina recognizes and learns only four syntactical categories: nouns, pre/postpositions, verbs and adjectives. The approach taken, however, can be extended to certain (sub)categories (like verb auxillaries and plural nouns), but not others (like adverbs, in most cases.)
 
 ## Setup
 
@@ -34,7 +29,7 @@ If you're on Windows, you may have to specify the full path to your python insta
 > ```
 
 ### Run
-For generating syntax rules for any language, Gina will give you a paragraph to translate. Do this very literally, without taking any meaning away from the sentences and she will show the syntax rules for the language you are translating into.
+Take a look at Gina's initial lexicon. Then give her 1) an English sentence 2) its literal Hindi translation. Try to include new words that you want her to learn, as well as old ones she can use as reference. You can check how much she has learnt from your sentece; you can also test her knowledge, and delete inaccurate deductions on her part. Teach her well!
 ```sh
   $ python interface.py
 ```
